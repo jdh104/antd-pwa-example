@@ -1,4 +1,3 @@
-import { addDoc } from "firebase/firestore/lite";
 
 const GET_LOCATION_DATA_TAG = "GLDT";
 const SYNC_LOCATION_DATA_TAG = "SLDT";
