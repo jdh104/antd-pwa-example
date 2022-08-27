@@ -40,9 +40,9 @@ localforage.config({
 });
 
 // set up firestore
-const firebaseApp = initializeApp(firebaseConfig);
-const firestore = getFirestore(firebaseApp);
-const fsCol = collection(firestore, "positions");
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+const database = getFirestore(firebaseApp);
+const fsCol = collection(database, "positions");
 
 /**
  * 
