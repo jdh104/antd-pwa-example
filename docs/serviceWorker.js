@@ -41,8 +41,7 @@ localforage.config({
 
 // set up firestore
 const firebaseApp = firebase.initializeApp(firebaseConfig);
-const database = getFirestore(firebaseApp);
-const fsCol = collection(database, "positions");
+const fsCol = firebase.firestore().collection("positions");
 
 /**
  * 
@@ -142,7 +141,7 @@ if ('serviceWorker' in navigator) {
                                 if (err2) {
                                     // PANIC
                                 } else if (!lastSend || latestTimestamp > lastSend) {
-                                    addDoc(col, data).catch(err3 => {
+                                    fsCol.add(data).catch(err3 => {
                                         // PANIC
                                     }).then(doc => {
                                         localforage.setItem(IDB_LAST_SEND_KEY, latestTimestamp, err4 => {
